@@ -1,0 +1,7 @@
+{% for category in cats %}
+{%if current_category == category.id%}
+    <li><button type="button" class="btn btn-secondary">{{category.name}}</button></li>
+{% else %}
+    <li><a href="{{category.get_absolute_url}}"><button type="button" class="btn btn-outline-secondary">{{category.name}}</button></a></li>
+{% endif %}
+{% endfor %}

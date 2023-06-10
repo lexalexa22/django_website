@@ -1,0 +1,76 @@
+{% extends 'main_site/base.html' %}
+{% load posts_smartphones %}
+
+{%block title%}
+    <title>{{ content.post_title }}</title>
+{%endblock%}
+
+{% block main_content_on_the_page %}
+
+{% autoescape off %}
+<h2>{{ content.post_title }}</h2>
+<div class="bread">
+    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);"
+        aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">Haupt</li>
+            <li class="breadcrumb-item active" aria-current="page">{{content.cat.name}}</li>
+        </ol>
+    </nav>
+    <div>Erschienen: {{content.creation_date | date:"SHORT_DATE_FORMAT"}}</div>
+</div>
+{{ content.post_content }}
+{% endautoescape %}
+<div class="prev_">
+    <div class="next_previous_posts">
+        <div class="prev">
+            {%if previous_post%}
+                <a href="{{previous_post.slug}}"><button type="button" class="btn btn-secondary">Letzter Post</button>
+    </a>
+            {%endif%}   
+        </div>
+        <div class="next">
+            {%if next_post%}
+                <a href="{{next_post.slug}}"><button type="button" class="btn btn-secondary">Nächster Post</button>
+    </a>
+            {%endif%}
+        </div>
+    </div>
+</div>
+<div class="vergleiche">
+    <h4>Andere Vergleiche von dieser Handys</h4>
+</div>
+<div class="similar_posts">
+    
+    <div class="row">
+                {%for p in similar%}
+                <div class="col-xl-4">
+                    <div class="card in_similar">
+                        {%if p.image%}
+                            <img src="{{p.image}}" class="card-img-top" alt="...">
+                        {% else %}
+                            <img src="https://fdn.gsmarena.com/imgroot/reviews/21/samsung-galaxy-a32-5g/lifestyle/-1024w2/gsmarena_006.jpg" class="card-img-top" alt="...">
+                        {%endif%}
+                        <div class="card-body">
+                            <h5 class="card-title">{{p.post_title}}</h5>
+                            <a href="/post/{{p.slug}}" class="btn btn-primary">Post lesen</a>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+        
+    </div>
+</div>
+{% endblock %}
+
+{%block content_in_right_column%}
+    <h5>die Tags des Artikles</h5>
+    {%if tag1%}
+        <div class="tags"><a href="/tag/{{tag1}}"><button type="button" class="btn btn-primary btn-sm">{{tag1}}</button></a></div>
+    {%endif%}
+    
+    {%if tag2%}
+        <div class="tags"><a href="/tag/{{tag2}}"><button type="button" class="btn btn-primary btn-sm">{{tag2}}</button></a></div>
+    {%endif%}
+    {% list_of_tags %}
+{%endblock%}

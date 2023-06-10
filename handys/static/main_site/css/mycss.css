@@ -1,0 +1,113 @@
+*{
+    margin: 0;
+    padding: 0
+}
+
+.none-block {
+    background-color: rgba(192, 192, 192, 0.307);
+}
+
+.right-column {
+    margin-top: 48px;
+}
+
+.right-column p {
+    padding: 1rem;
+}
+
+.right-column a {
+    text-decoration: none;
+    color:rgb(111, 111, 111)
+}
+
+.secondary-menu {
+    background-color: rgba(192, 192, 192, 0.307);
+    margin: 0;
+    padding: 0;
+}
+
+.secondary-menu ol{
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.secondary-menu ol>li{
+    display: block;
+    padding-inline: 10px;
+    
+}
+
+.main-block {
+    margin: 0;
+    padding: 0;
+
+}
+
+.haupt{
+    margin-top: 1rem;
+}
+
+.bread {
+    display: flex;
+    width: 95%;
+    justify-content: space-between;
+}
+
+.cards {
+    margin-top: 1rem;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.card-col {
+    display: flex;
+    justify-content: center;
+}
+
+.nav2 {
+    margin-bottom: 10px;
+}
+
+.tags {
+    margin: 0;
+    margin-bottom: 10px;
+}
+.similar_posts{
+    display: flex;
+}
+.card.in_similar {
+    width: 16rem;
+}
+.prev_ {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.next_previous_posts {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.next, .prev {
+    display: inline;
+}
+
+.vergleiche {
+    display: flex;
+    margin-top: 15px;
+}
+
+.footer_ {
+    height: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(169, 169, 169, 0.27);
+}

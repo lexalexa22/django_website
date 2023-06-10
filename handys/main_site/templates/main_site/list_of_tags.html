@@ -1,0 +1,10 @@
+<h5>Populär Handys:</h5>
+<div class="tags">
+{%for tag in all_tags%}
+
+<a href="/tag/{{tag.tag_name}}"><button type="button" class="btn btn-primary"
+        style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+        {{tag.tag_name}}
+    </button></a>
+{%endfor%}
+</div>

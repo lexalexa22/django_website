@@ -1,0 +1,43 @@
+    <div class="nav2">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pages">
+                            <li class="page-item">
+                                <a class="page-link" href="/" aria-label="Previous">
+                                    <span aria-hidden="true">В начало</span>
+                                </a>
+                            </li>
+                            {% for link in links %}
+                                {%if current_category == 1 %}
+                                    {%if link == current_page%}
+                                        <li class="page-item page-link" style="color: black;">{{link}}</li>
+                                    {%else%}
+                                        {%if link < last_page%}
+                                            <li class="page-item"><a class="page-link" href="/category/{{current_category}}/{{link}}">{{link}}</a></li>
+                                        {%endif%}
+                                    {%endif%}
+
+                                {%else%}
+                                    {%if link == current_page%}
+                                        <li class="page-item page-link" style="color: black;">{{link}}</li>
+                                    {%else%}
+                                        {%if link < last_page%}
+                                            <li class="page-item"><a class="page-link" href="/page/{{link}}">{{link}}</a></li>
+                                        {%endif%}
+                                    {%endif%}
+                                {%endif%}
+                            {% endfor %}
+                            <li class="page-item">
+                                {%if current_category%}
+                                    <a class="page-link" href="/category/{{current_category}}/{{last_page}}" aria-label="Next">
+                                        <span aria-hidden="true">В конец</span>
+                                    </a>
+                                {%else%}
+                                    <a class="page-link" href="/page/{{last_page}}" aria-label="Next">
+                                    <span aria-hidden="true">В конец</span>
+                                    </a>
+                                {%endif%}
+                                
+                            </li>
+                        </ul>
+                    </nav>
+                </div>

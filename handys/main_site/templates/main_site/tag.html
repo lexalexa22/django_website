@@ -1,0 +1,31 @@
+{% extends 'main_site/base.html' %}
+{% load posts_smartphones %}
+
+{%block title%}
+    <title>Die Analoga des {{tag}}: was ist besser?</title>
+{%endblock%}
+
+{% block main_content_on_the_page %}
+<h3>tag: {{tag}}</h3>
+<div class="cards">
+    <div class="row">
+        {% for post in all_posts%}
+        <div class="col-md-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{post.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.post_title}}</h5>
+
+                    <a href="/post/{{post.slug}}" class="btn btn-primary">Post lesen</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
+{%block content_in_right_column%}
+    {%list_of_tags%}
+{%endblock%}

@@ -1,0 +1,10 @@
+{% extends 'main_site/base.html' %}
+
+{% block main_content_on_the_page %}
+    <form action="{% url 'add_post' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Подтвердить</button>
+    </form>
+
+{% endblock main_content_on_the_page %}

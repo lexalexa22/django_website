@@ -1,0 +1,47 @@
+{% extends 'main_site/base.html' %}
+{% load posts_smartphones %}
+
+{%block title%}
+    <title>Die Vergleiche der Handys - seite {{current_page}}</title>
+{%endblock%}
+
+{% block main_content_on_the_page %}
+	{% if current_category == 1%}
+		<h3>Kategorie: Handys</h3>
+	{%endif%}
+    <div class="cards">
+        <div class="row">
+            {% for post in all_posts%}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    
+                    {%if post.image %}
+                        <img src="{{post.image}}" class="card-img-top" alt="...">
+                    {%else%}
+                        <img src="https://fdn.gsmarena.com/imgroot//reviews/18/samsung-galaxy-s9/lifestyle/-728w2/gsmarena_004.jpg" class="card-img-top" alt="...">
+                    {%endif%}
+
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.post_title}}</h5>
+
+                        <a href="/post/{{post.slug}}" class="btn btn-primary">Post lesen</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <a href="/category/1"><button type="button" class="btn btn-outline-secondary">Anfang</button></a>
+    {%for page in pagination%}
+        {% if page > 1 and page < last_page %}
+            {% if page == current_page %}
+                <button type="button" class="btn btn-secondary" disabled>{{page}}</button>
+            {%else%}
+                <a href="?page={{page}}"><button type="button" class="btn btn-outline-secondary">{{page}}</button></a>
+            {%endif%}
+        {% endif %}
+    {%endfor%}
+    <span>...... </span><a href="?page={{last_page}}"><button type="button" class="btn btn-outline-secondary">{{last_page}}</button></a>
+
+{% endblock %}
+

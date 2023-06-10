@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0
+}
+
+.none-block {
+    background-color: rgba(192, 192, 192, 0.307);
+}
+
+.right-column p {
+    padding: 1rem;
+    border-bottom-style: solid;
+    border-width: 1px;
+
+}
+
+.secondary-menu {
+    background-color: rgba(192, 192, 192, 0.307);
+    margin: 0;
+    padding: 0;
+}
+
+.secondary-menu ol{
+    list-style: none;
+    display: flex;
+    margin-top: 10px;
+    padding-left: 0;
+}
+
+.secondary-menu ol>li{
+    display: block;
+    padding-inline: 10px;
+    
+}
+
+.main-block {
+    margin: 0;
+    padding: 0;
+}
+
+.carusel {
+    padding-top: 1rem;
+}
+
+.cards {
+    margin-top: 1rem;
+}
+
+.card {
+    margin-top: 1rem;
+}

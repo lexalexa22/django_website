@@ -1,0 +1,40 @@
+{% extends 'main_site/base.html' %}
+{% load posts_smartphones %}
+{%block title%}
+    <title>Die Vergleiche der Handys = seite {{current_page}}</title>
+{%endblock%}
+{% block main_content_on_the_page %}
+    {% if current_category == 1%}
+        <h3>Kategorie: Handys</h3>
+    {%else%}
+        <h3>Все категории</h3>
+    {% endif %}
+    <div class="cards">
+        <div class="row">
+            {% for post in posts%}
+            <div class="col-md-4">
+                <div class="card" style="width: 18rem;">
+                    {% for key, value in images.items %}
+                        {% if key == post.slug %}
+                            <img src="{{value}}" class="card-img-top" alt="...">
+                        {% endif %}
+                    {% endfor %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{post.post_title}}</h5>
+                        
+                        <a href="/post/{{post.slug}}" class="btn btn-primary">Post lesen</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% if current_category == 0 %}
+    {% if current_page %}
+    {% navigation current_page=current_page %}
+    {% endif %}
+    {%else%}
+    {% navigation current_page=current_page current_category=current_category %}
+    {%endif%}
+{% endblock %}
+
